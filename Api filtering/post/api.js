@@ -3,7 +3,7 @@ const api = async () => {
     const res = await fetch("https://dummyjson.com/posts");
     if (res.status === 404) return "error";
     const data = await res.json();
-    return data;
+    return data.posts;
   } catch (error) {
     console.log(error);
   }
