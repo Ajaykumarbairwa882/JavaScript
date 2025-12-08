@@ -1,0 +1,21 @@
+{
+  "name": "revision",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "05_11.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajaykumarbairwa882/JavaScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ajaykumarbairwa882/JavaScript/issues"
+  },
+  "homepage": "https://github.com/Ajaykumarbairwa882/JavaScript#readme"
+}
