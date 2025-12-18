@@ -22,7 +22,6 @@ const data = await api();
 // // console.log(like);
 // console.log(newans)
 
-
 // const shortPosts = data.filter(post => post.body.length < 200);
 // console.log(shortPosts);
 
@@ -38,8 +37,40 @@ const data = await api();
 // )
 // console.log(ans)
 
-const searchtag=["history","american","mystery"];
-const ans=data.filter(f=>
-    searchtag.some(tag=>f.tags.includes(tag))
-).length
-console.log(ans)
+// const searchtag=["history","american","mystery"];
+// const ans=data.filter(f=>
+//     searchtag.some(tag=>f.tags.includes(tag))
+// ).length
+// console.log(ans)
+
+// const topicword = ["stupidity", "mental", "fiue", "frozen"];
+
+// const ans = data
+//   .filter((f) => topicword.some((s) => f.body.includes(s)))
+//   .map((m) => m.id);
+// console.log(ans);
+
+
+
+// const ans=data.map((m,i)=>{
+//     const {title}=m;
+//     return{
+//         uerid:m.id,
+//         author: Math.floor(Math.random(i)*10),
+//         title,
+//     }
+// }
+// )
+// console.log(ans)
+
+
+
+// const  ans=data.map(m=>{
+//     const {id,tags}=m;
+//     return{
+//         id,
+//         tagcount:tags.length,
+//     }
+// })
+// console.log(ans)
+
