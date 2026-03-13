@@ -1,0 +1,788 @@
+// 1. Print Even Numbers from 1 to 100
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 2 === 0) console.log(i);
+}
+
+// 2. Sum of Digits
+
+let num = 123; // replace with user input if needed
+let sum = 0;
+let temp = num;
+while (temp > 0) {
+  sum += temp % 10;
+  temp = Math.floor(temp / 10);
+}
+console.log(sum); // 6
+
+// 3. Factorial Using Loop
+
+let n = 5; // number to calculate factorial
+let fact = 1;
+for (let i = 1; i <= n; i++) {
+  fact *= i;
+}
+console.log(fact); // 120
+
+// 4. Reverse a Number
+
+let number = 456;
+let reversed = 0;
+while (number > 0) {
+  reversed = reversed * 10 + number % 10;
+  number = Math.floor(number / 10);
+}
+console.log(reversed); // 654
+// 
+// Recursive-Based Questions
+// 1. Factorial Using Recursion
+
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // 120
+
+// 2. Sum of Natural Numbers
+
+function sumN(n) {
+  if (n === 0) return 0;
+  return n + sumN(n - 1);
+}
+console.log(sumN(3)); // 6
+
+// 3. Power Function (a^b)
+
+function power(a, b) {
+  if (b === 0) return 1;
+  return a * power(a, b - 1);
+}
+console.log(power(2, 3)); // 8
+
+// 4. Count Digits
+
+function countDigits(num) {
+  if (num === 0) return 0;
+  return 1 + countDigits(Math.floor(num / 10));
+}
+console.log(countDigits(12345)); // 5
+
+// 5. Print Numbers from N to 1
+
+function printNto1(n) {
+  if (n === 0) return;
+  console.log(n);
+  printNto1(n - 1);
+}
+printNto1(5); // 5 4 3 2 1
+
+
+// 1. Reverse a String
+
+function reverseString(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+  return reversed;
+}
+console.log(reverseString("hello")); // "olleh"
+
+// 2. Find the Largest Number
+
+function findLargest(arr) {
+  let largest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > largest) largest = arr[i];
+  }
+  return largest;
+}
+console.log(findLargest([1, 3, 2])); // 3
+
+// 3. Count Vowels
+
+function countVowels(str) {
+  let count = 0;
+  const vowels = "aeiouAEIOU";
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) count++;
+  }
+  return count;
+}
+console.log(countVowels("hello")); // 2
+
+// 4. Sum of Array
+
+function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+console.log(sumArray([1, 2, 3])); // 6
+
+// 5. Remove Duplicates
+
+function removeDuplicates(arr) {
+  let unique = [];
+  for (let i = 0; i < arr.length; i++) {
+    let found = false;
+    for (let j = 0; j < unique.length; j++) {
+      if (arr[i] === unique[j]) {
+        found = true;
+        break;
+      }
+    }
+    if (!found) unique.push(arr[i]);
+  }
+  return unique;
+}
+console.log(removeDuplicates([1, 2, 2, 3])); // [1,2,3]
+
+// 6. Longest Word
+
+function findLongestWord(sentence) {
+  let words = [];
+  let word = "";
+  for (let i = 0; i <= sentence.length; i++) {
+    if (i === sentence.length || sentence[i] === " ") {
+      words.push(word);
+      word = "";
+    } else {
+      word += sentence[i];
+    }
+  }
+  let longest = words[0];
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > longest.length) longest = words[i];
+  }
+  return longest;
+}
+console.log(findLongestWord("The quick brown fox")); // "quick"
+
+// 7. Count Characters
+
+function countCharacters(str) {
+  let counts = {};
+  for (let i = 0; i < str.length; i++) {
+    if (counts[str[i]]) counts[str[i]]++;
+    else counts[str[i]] = 1;
+  }
+  return counts;
+}
+console.log(countCharacters("hello")); // {h:1,e:1,l:2,o:1}
+
+// 8. Random Integer
+
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(randomInteger(1, 10));
+
+// 9. Find Duplicates
+
+function findDuplicates(arr) {
+  let duplicates = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+        duplicates.push(arr[i]);
+      }
+    }
+  }
+  return duplicates;
+}
+console.log(findDuplicates([1, 2, 2, 3, 4, 4])); // [2,4]
+
+// 10. Reverse Words
+
+function reverseWords(str) {
+  let words = [];
+  let word = "";
+  for (let i = 0; i <= str.length; i++) {
+    if (i === str.length || str[i] === " ") {
+      words.push(word);
+      word = "";
+    } else {
+      word += str[i];
+    }
+  }
+  let reversed = "";
+  for (let i = words.length - 1; i >= 0; i--) {
+    reversed += words[i] + (i > 0 ? " " : "");
+  }
+  return reversed;
+}
+console.log(reverseWords("Hello world")); // "world Hello"
+
+// 11. Merge Two Objects
+
+function mergeObjects(obj1, obj2) {
+  let merged = {};
+  for (let key in obj1) merged[key] = obj1[key];
+  for (let key in obj2) merged[key] = obj2[key];
+  return merged;
+}
+console.log(mergeObjects({a:1}, {a:2, b:3})); // {a:2,b:3}
+
+// 12. Sum of Numbers 1 to n
+
+function sumToN(n) {
+  let sum = 0;
+  for (let i = 1; i <= n; i++) sum += i;
+  return sum;
+}
+console.log(sumToN(5)); // 15
+
+// 13. Count Even Numbers 1 to n
+
+function countEven(n) {
+  let count = 0;
+  for (let i = 2; i <= n; i += 2) count++;
+  return count;
+}
+console.log(countEven(10)); // 5
+
+// 14. Multiply Array by 2
+
+function multiplyByTwo(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) result.push(arr[i] * 2);
+  return result;
+}
+console.log(multiplyByTwo([1,2,3])); // [2,4,6]
+
+// 15. Number Pattern
+
+function printPattern(n) {
+  for (let i = 1; i <= n; i++) {
+    let row = "";
+    for (let j = 1; j <= i; j++) row += j + " ";
+    console.log(row.trim());
+  }
+}
+printPattern(4);
+
+// 16. Palindrome Check
+
+function isPalindrome(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; i--) reversed += str[i];
+  return str === reversed;
+}
+console.log(isPalindrome("madam")); // true
+console.log(isPalindrome("hello")); // false
+
+// 17. Factorial (Recursive remains same)
+
+function factorial(n) {
+  if (n === 0 || n === 1) return 1;
+  return n * factorial(n-1);
+}
+console.log(factorial(5)); // 120
+
+// 18. Fibonacci Sequence
+
+function fibonacci(n) {
+  let sequence = [];
+  for (let i = 0; i < n; i++) {
+    if (i === 0) sequence.push(0);
+    else if (i === 1) sequence.push(1);
+    else sequence.push(sequence[i-1] + sequence[i-2]);
+  }
+  return sequence;
+}
+console.log(fibonacci(5)); // [0,1,1,2,3]
+
+// 19. Array Intersection
+
+function intersection(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j] && !result.includes(arr1[i])) {
+        result.push(arr1[i]);
+      }
+    }
+  }
+  return result;
+}
+console.log(intersection([1,2,3],[2,3,4])); // [2,3]
+
+// 20. Array Difference
+
+function difference(arr1, arr2) {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    let found = false;
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        found = true;
+        break;
+      }
+    }
+    if (!found) result.push(arr1[i]);
+  }
+  return result;
+}
+console.log(difference([1,2,3],[2,3,4])); // [1]
+
+// 21. Flatten Nested Array
+
+function flatten(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      let flat = flatten(arr[i]);
+      for (let j = 0; j < flat.length; j++) {
+        result.push(flat[j]);
+      }
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(flatten([1,[2,[3,4]],5])); // [1,2,3,4,5]
+
+// 22. Find Missing Number
+
+function findMissingNumber(arr, n) {
+  let total = n*(n+1)/2;
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) sum += arr[i];
+  return total - sum;
+}
+console.log(findMissingNumber([1,2,4,5],5)); // 3
+
+// 23. Find Second Largest Number
+
+function secondLargest(arr) {
+  let largest = -Infinity, second = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      second = largest;
+      largest = arr[i];
+    } else if (arr[i] > second && arr[i] < largest) {
+      second = arr[i];
+    }
+  }
+  return second;
+}
+console.log(secondLargest([1,5,3,9,7])); // 7
+
+// 24. Reverse an Integer
+
+function reverseInt(num) {
+  let reversed = 0;
+  while (num != 0) {
+    reversed = reversed*10 + num%10;
+    num = Math.floor(num/10);
+  }
+  return reversed;
+}
+console.log(reverseInt(1234)); // 4321
+
+// 25. Armstrong Number
+
+function isArmstrong(num) {
+  let sum = 0;
+  let temp = num;
+  let digits = num.toString().length;
+  while (temp > 0) {
+    let digit = temp % 10;
+    sum += Math.pow(digit, digits);
+    temp = Math.floor(temp/10);
+  }
+  return sum === num;
+}
+console.log(isArmstrong(153)); // true
+
+// 26. Capitalize Words
+
+function capitalizeWords(sentence) {
+  let result = "";
+  let capitalizeNext = true;
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] === " ") {
+      result += " ";
+      capitalizeNext = true;
+    } else {
+      result += capitalizeNext ? sentence[i].toUpperCase() : sentence[i];
+      capitalizeNext = false;
+    }
+  }
+  return result;
+}
+console.log(capitalizeWords("hello world")); // "Hello World"
+
+// 27. Count Words in String
+
+function countWords(sentence) {
+  let count = 0;
+  let inWord = false;
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] !== " " && !inWord) {
+      count++;
+      inWord = true;
+    } else if (sentence[i] === " ") {
+      inWord = false;
+    }
+  }
+  return count;
+}
+console.log(countWords("The quick brown fox")); // 4
+
+// 28. Longest Palindromic Substring
+
+function longestPalindrome(s) {
+  let longest = "";
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i; j < s.length; j++) {
+      let substr = s.slice(i,j+1);
+      let reversed = "";
+      for (let k = substr.length-1; k >=0; k--) reversed += substr[k];
+      if (substr === reversed && substr.length > longest.length) {
+        longest = substr;
+      }
+    }
+  }
+  return longest;
+}
+console.log(longestPalindrome("babad")); // "bab" or "aba"
+
+// 29. Anagram Check
+
+function isAnagram(str1,str2) {
+  if (str1.length !== str2.length) return false;
+  let count = {};
+  for (let i = 0; i < str1.length; i++) {
+    count[str1[i]] = (count[str1[i]] || 0) + 1;
+  }
+  for (let i = 0; i < str2.length; i++) {
+    if (!count[str2[i]]) return false;
+    count[str2[i]]--;
+  }
+  return true;
+}
+console.log(isAnagram("listen","silent")); // true
+
+// 30. Frequency of Array Elements
+
+function frequency(arr) {
+  let freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    freq[arr[i]] = (freq[arr[i]] || 0) + 1;
+  }
+  return freq;
+}
+console.log(frequency([1,2,2,3,3,3])); // {1:1,2:2,3:3}
+
+// 31. Majority Element
+
+function majorityElement(arr) {
+  let freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    freq[arr[i]] = (freq[arr[i]] || 0) + 1;
+    if (freq[arr[i]] > arr.length/2) return arr[i];
+  }
+}
+console.log(majorityElement([3,3,4,3,5,3])); // 3
+
+// 32. Longest Consecutive Sequence
+
+function longestConsecutive(arr) {
+  let set = {};
+  for (let i = 0; i < arr.length; i++) set[arr[i]] = true;
+  let longest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (!set[arr[i]-1]) {
+      let count = 1;
+      let next = arr[i]+1;
+      while (set[next]) {
+        count++;
+        next++;
+      }
+      if (count > longest) longest = count;
+    }
+  }
+  return longest;
+}
+console.log(longestConsecutive([100,4,200,1,3,2])); // 4
+
+// 33. Subarray with Sum K
+
+function subarraysWithSumK(arr,k) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0;
+    let sub = [];
+    for (let j = i; j < arr.length; j++) {
+      sum += arr[j];
+      sub.push(arr[j]);
+      if (sum === k) result.push([...sub]);
+    }
+  }
+  return result;
+}
+console.log(subarraysWithSumK([1,2,3,4],5)); // [[2,3],[1,4]]
+
+// 35. Kth Largest Element
+
+function kthLargest(arr, k) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i+1; j < arr.length; j++) {
+      if (arr[i] < arr[j]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr[k-1];
+}
+console.log(kthLargest([3,2,1,5,6,4],2)); // 5
+
+// 36. Shuffle Array
+
+function shuffleArray(arr) {
+  for (let i = arr.length-1; i > 0; i--) {
+    let j = Math.floor(Math.random()*(i+1));
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
+console.log(shuffleArray([1,2,3,4])); // e.g., [3,1,4,2]
+
+// 37. Matrix Transpose
+
+function transpose(matrix) {
+  let rows = matrix.length;
+  let cols = matrix[0].length;
+  let transposed = [];
+  for (let i = 0; i < cols; i++) {
+    transposed[i] = [];
+    for (let j = 0; j < rows; j++) {
+      transposed[i][j] = matrix[j][i];
+    }
+  }
+  return transposed;
+}
+console.log(transpose([[1,2,3],[4,5,6]])); // [[1,4],[2,5],[3,6]]
+
+// 38. Spiral Matrix
+
+function spiralOrder(matrix) {
+  let result = [];
+  let top = 0, bottom = matrix.length-1;
+  let left = 0, right = matrix[0].length-1;
+  while (top <= bottom && left <= right) {
+    for (let i = left; i <= right; i++) result.push(matrix[top][i]);
+    top++;
+    for (let i = top; i <= bottom; i++) result.push(matrix[i][right]);
+    right--;
+    if (top <= bottom) {
+      for (let i = right; i >= left; i--) result.push(matrix[bottom][i]);
+      bottom--;
+    }
+    if (left <= right) {
+      for (let i = bottom; i >= top; i--) result.push(matrix[i][left]);
+      left++;
+    }
+  }
+  return result;
+}
+console.log(spiralOrder([[1,2,3],[4,5,6],[7,8,9]])); // [1,2,3,6,9,8,7,4,5]
+
+// 40. Word Frequency in Paragraph
+
+function wordFrequency(paragraph) {
+  let freq = {};
+  let word = "";
+  for (let i = 0; i <= paragraph.length; i++) {
+    if (i === paragraph.length || paragraph[i] === " " || paragraph[i]==="\n") {
+      if (word) {
+        word = word.toLowerCase();
+        freq[word] = (freq[word] || 0) + 1;
+        word = "";
+      }
+    } else {
+      word += paragraph[i];
+    }
+  }
+  return freq;
+}
+console.log(wordFrequency("Hello hello world")); // {hello:2, world:1}
+
+// 41. Remove Characters (keep alphabets only)
+
+function removeNonAlpha(str) {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    let code = str[i].toLowerCase().charCodeAt(0);
+    if (code >= 97 && code <= 122) result += str[i];
+  }
+  return result;
+}
+console.log(removeNonAlpha("he@ll#o12")); // "hello"
+
+// 42. Valid Parentheses
+
+function isValidParentheses(str) {
+  let stack = [];
+  let map = {")":"(", "]":"[", "}":"{"};
+  for (let i = 0; i < str.length; i++) {
+    let ch = str[i];
+    if (ch === "(" || ch === "[" || ch === "{") stack.push(ch);
+    else {
+      if (stack.length === 0 || stack.pop() !== map[ch]) return false;
+    }
+  }
+  return stack.length === 0;
+}
+console.log(isValidParentheses("([]){}")); // true
+
+// 43. Generate All Subsets (Power Set)
+
+function powerSet(arr) {
+  let result = [[]];
+  for (let i = 0; i < arr.length; i++) {
+    let currentLength = result.length;
+    for (let j = 0; j < currentLength; j++) {
+      result.push(result[j].concat(arr[i]));
+    }
+  }
+  return result;
+}
+console.log(powerSet([1,2])); // [[],[1],[2],[1,2]]
+
+// 44. Generate All Permutations of a String
+
+function permute(str) {
+  let result = [];
+  function helper(prefix, remaining) {
+    if (remaining.length === 0) result.push(prefix);
+    for (let i = 0; i < remaining.length; i++) {
+      helper(prefix + remaining[i], remaining.slice(0,i)+remaining.slice(i+1));
+    }
+  }
+  helper("", str);
+  return result;
+}
+console.log(permute("abc")); // ["abc","acb","bac","bca","cab","cba"]
+
+// 45. Longest Substring Without Repeating Characters
+
+function longestUniqueSubstring(str) {
+  let longest = "";
+  for (let i = 0; i < str.length; i++) {
+    let seen = {};
+    let temp = "";
+    for (let j = i; j < str.length; j++) {
+      if (seen[str[j]]) break;
+      temp += str[j];
+      seen[str[j]] = true;
+    }
+    if (temp.length > longest.length) longest = temp;
+  }
+  return longest;
+}
+console.log(longestUniqueSubstring("abcabcbb")); // "abc"
+
+// 46. Smallest Substring with All Unique Characters
+
+function smallestUniqueSubstring(str) {
+  let uniqueChars = {};
+  for (let i = 0; i < str.length; i++) uniqueChars[str[i]] = true;
+  let totalUnique = Object.keys(uniqueChars).length;
+  let minLen = str.length+1, minSub = "";
+  for (let i = 0; i < str.length; i++) {
+    let seen = {};
+    let count = 0;
+    for (let j = i; j < str.length; j++) {
+      if (!seen[str[j]]) {
+        seen[str[j]] = true;
+        count++;
+      }
+      if (count === totalUnique && (j-i+1) < minLen) {
+        minLen = j-i+1;
+        minSub = str.slice(i,j+1);
+        break;
+      }
+    }
+  }
+  return minSub;
+}
+console.log(smallestUniqueSubstring("aabcbcdbca")); // "dbca"
+
+// 47. String Compression
+
+function compressString(str) {
+  let result = "";
+  let count = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i+1]) count++;
+    else {
+      result += str[i] + count;
+      count = 1;
+    }
+  }
+  return result;
+}
+console.log(compressString("aaabbc")); // "a3b2c1"
+
+// 48. Convert Roman to Integer
+
+function romanToInt(s) {
+  let map = {I:1,V:5,X:10,L:50,C:100,D:500,M:1000};
+  let total = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (map[s[i]] < map[s[i+1]] || i === s.length-1) total += map[s[i]];
+    else total -= map[s[i]];
+  }
+  return total;
+}
+console.log(romanToInt("XIV")); // 14\
+
+// 49. Convert Integer to Roman
+
+function intToRoman(num) {
+  let val = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
+  let sym = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"];
+  let result = "";
+  for (let i = 0; i < val.length; i++) {
+    while (num >= val[i]) {
+      num -= val[i];
+      result += sym[i];
+    }
+  }
+  return result;
+}
+console.log(intToRoman(58)); // "LVIII"
+
+// 50. Minimum Edit Distance
+
+function minEditDistance(str1,str2) {
+  let m = str1.length, n = str2.length;
+  let dp = [];
+  for (let i = 0; i <= m; i++) {
+    dp[i] = [];
+    for (let j = 0; j <= n; j++) {
+      if (i === 0) dp[i][j] = j;
+      else if (j === 0) dp[i][j] = i;
+      else dp[i][j] = 0;
+    }
+  }
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i-1] === str2[j-1]) dp[i][j] = dp[i-1][j-1];
+      else dp[i][j] = 1 + Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+    }
+  }
+  return dp[m][n];
+}
+console.log(minEditDistance("horse","ros")); // 3
+
